@@ -25,4 +25,7 @@ describe('growUP', () => {
     it('Increases the Pet.age by specified amount', () => {
         expect(pet.age).toEqual(1);
     });
+    it('Increases the Pet.hunger by 5', () => {
+        expect(pet.hunger).toEqual(5);
+    });
 });
