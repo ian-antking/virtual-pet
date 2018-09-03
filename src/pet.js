@@ -11,4 +11,8 @@ Pet.prototype.growUp = function() {
     this.fitness -= 3;
 };
 
+Pet.prototype.walk = function(){
+
+};
+
 module.exports = Pet;
