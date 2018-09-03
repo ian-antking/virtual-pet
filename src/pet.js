@@ -3,8 +3,8 @@ function Pet(name) {
     this.age = 0;
 };
 
-Pet.prototype.growUp = function() {
-    this.age += 1;
+Pet.prototype.growUp = function(years) {
+    this.age += years;
 };
 
 module.exports = Pet;
