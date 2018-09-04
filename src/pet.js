@@ -11,4 +11,11 @@ Pet.prototype.growUp = function() {
     this.fitness -= 3;
 };
 
+Pet.prototype.feed = function() {
+    this.hunger -=3;
+    if (this.hunger < 0){
+        this.hunger = 0;
+    };
+};
+
 module.exports = Pet;
