@@ -19,4 +19,11 @@ Pet.prototype.walk = function(){
     };
 };
 
+Pet.prototype.feed = function() {
+    this.hunger -=3;
+    if (this.hunger < 0){
+        this.hunger = 0;
+    };
+};
+
 module.exports = Pet;
