@@ -38,3 +38,16 @@ describe('growUP', () => {
         expect(pet.fitness).toEqual(4);
     });
 });
+
+describe('feed', () => {
+    const pet = new Pet('Lassie');
+    pet.hunger = 4;
+    pet.feed();
+    it('Decreases hunger by 3', () => {
+        expect(pet.hunger).toEqual(1);
+    });
+    it('Does not decrease hunger less than 0', () => {
+        pet.feed();
+        expect(pet.hunger).toEqual(0);
+    });
+});
