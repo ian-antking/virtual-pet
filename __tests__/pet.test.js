@@ -19,6 +19,18 @@ describe('Constructor', () => {
         expect(pet.fitness).toEqual(10);
     });
 });
+
+describe('Species', () => {
+    it('Defaults to otter if no species specified at creation', () => {
+        const otter = new Pet('Tarka');
+        expect(otter.species).toBe('Otter');
+    });
+    it('Sets pet.species at object construction', () => {
+        const unicorn = new Pet('Sparkles', 'Unicorn');
+        expect(unicorn.species).toBe('Unicorn')
+    });
+});
+
 describe('growUP', () => {
     const pet = new Pet('Spot');
     pet.growUp();
