@@ -103,3 +103,11 @@ describe('Checkup', () => {
         expect(pet.talk()).toBe('I am hungry AND I need a walk!');
     });
 });
+
+describe('isAlive', () => {
+    it('returns false if fitness is 0', () => {
+        const pet = new Pet('Cuddles');
+        pet.age = 31;
+        expect(pet.isAlive()).toEqual(false);
+    });
+});
