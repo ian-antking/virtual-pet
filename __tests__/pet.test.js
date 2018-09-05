@@ -107,7 +107,29 @@ describe('Checkup', () => {
 describe('isAlive', () => {
     it('returns false if fitness is 0', () => {
         const pet = new Pet('Cuddles');
+        for(let i = 10; i >= 1; i--){
+            pet.fitness = i;
+            expect(pet.isAlive).toEqual(true);
+        };
+        pet.fitness = 0;
+        expect(pet.isAlive).toEqual(false);
+    });
+    it('returns false if hunger is 10', () => {
+        const pet = new Pet('Slinky');
+        for(let i = 0; i <= 9; i++){
+            pet.hunger = i;
+            expect(pet.isAlive).toEqual(true);
+        };
+        pet.hunger = 10;
+        expect(pet.isAlive).toEqual(false);
+    });
+    it('Returns false if age is more than 30', () => {
+        const pet = new Pet('Kat');
+        for(let i = 0; i <= 30; i++){
+            pet.age = i;
+            expect(pet.isAlive).toEqual(true);
+        };
         pet.age = 31;
-        expect(pet.isAlive()).toEqual(false);
+        expect(pet.isAlive).toEqual(false);
     });
 });

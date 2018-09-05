@@ -6,6 +6,12 @@ function Pet(name, species = 'Otter') {
     this.species = species;
 };
 
+Pet.prototype = {
+    get isAlive(){
+        return this.age <= 30 && this.hunger < 10 && this.fitness > 0;
+    },
+};
+
 Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
@@ -36,18 +42,6 @@ Pet.prototype.talk = function(){
         return "I need a walk.";
     }else{
         return "I feel great!"
-    };
-};
-
-Pet.prototype.isAlive = function(){
-    if(this.hunger === 10){
-        return false;
-    }else if(this.fitness === 0){
-        return false;
-    }else if(this.age > 30){
-        return false;
-    }else{
-        return true;
     };
 };
 
