@@ -65,3 +65,29 @@ describe('Walk', () => {
         expect(pet.fitness).toEqual(10);
     });
 });
+
+describe('Checkup', () => {
+    it('Returns that nothing is wrong with pet', () => {
+        const pet = new Pet('Krypto');
+        expect(pet.talk()).toBe('I feel great!');
+        pet.hunger = 4;
+        pet.fitness = 4; 
+        expect(pet.talk()).toBe('I feel great!');
+    });
+    it('Returns that the pet is hungry', () => {
+        const pet = new Pet('Krypto');
+        pet.hunger = 5;
+        expect(pet.talk()).toBe('I am hungry.');
+    });
+    it('Returns that the pet needs to go for a walk', () => {
+        const pet = new Pet('Krypto');
+        pet.fitness = 3;
+        expect(pet.talk()).toBe('I need a walk.');
+    });
+    it('Returns that the pet is hungry and needs to go for a walk', () => {
+        const pet = new Pet('Krypto');
+        pet.hunger = 10;
+        pet.fitness = 1;
+        expect(pet.talk()).toBe('I am hungry AND I need a walk!');
+    });
+});
