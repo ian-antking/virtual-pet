@@ -4,6 +4,7 @@ function Pet(name, species = 'Otter') {
     this.hunger = 0;
     this.fitness = 10;
     this.species = species;
+    this.children = [];
     
 };
 
@@ -63,5 +64,10 @@ Pet.prototype.talk = function(){
     };
       
 };
+
+Pet.prototype.reproduce = function(name){
+    this.children.push(new Pet(name, this.species))
+};
+
 
 module.exports = Pet;

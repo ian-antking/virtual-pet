@@ -141,3 +141,11 @@ describe('isAlive', () => {
         expect(deadDog.talk).toThrow('Your pet is dead...');
     });
 });
+
+describe('Reproduce', () => {
+    it('Adds a new instance of pet, of the same species to pet.children', () => {
+        const parent = new Pet('Mufasa', 'Lion');
+        parent.reproduce('Simba')
+        expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Simba", "species": "Lion"}]);
+    });
+});
