@@ -66,15 +66,15 @@ describe('Feed', () => {
 
 describe('Walk', () => {
     const pet = new Pet('Lassie');
-    pet.growUp();
-    pet.growUp();
-    pet.walk();
+    pet.fitness = 4;
     it('Increases fitness by 4', () => {
+        pet.walk();
         expect(pet.fitness).toEqual(8);
     });
     it('Does not increase fitness more than 10', () => {
         pet.walk();
-        expect(pet.fitness).toEqual(10);
+        pet.walk();
+        expect(pet.fitness).toEqual(10);pet.walk();
     });
 });
 
@@ -98,7 +98,7 @@ describe('Checkup', () => {
     });
     it('Returns that the pet is hungry and needs to go for a walk', () => {
         const pet = new Pet('Krypto');
-        pet.hunger = 10;
+        pet.hunger = 9;
         pet.fitness = 1;
         expect(pet.talk()).toBe('I am hungry AND I need a walk!');
     });
@@ -131,5 +131,13 @@ describe('isAlive', () => {
         };
         pet.age = 31;
         expect(pet.isAlive).toEqual(false);
+    });
+    it('A dead pet cannot be ressurected', () => {
+        const deadDog = new Pet('Old Yella', 'Dog');
+        deadDog.age = 100;
+        expect(deadDog.walk).toThrow('Your pet is dead...');
+        expect(deadDog.feed).toThrow('Your pet is dead...');
+        expect(deadDog.growUp).toThrow('Your pet is dead...');
+        expect(deadDog.talk).toThrow('Your pet is dead...');
     });
 });
