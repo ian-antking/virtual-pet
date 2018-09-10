@@ -1,3 +1,6 @@
+const MAX_FITNESS = 10;
+const DEAD_MESSAGE = `Your pet is dead...`;
+
 function Pet(name, species = 'Otter') {
     this.name = name;
     this.age = 0;
@@ -16,7 +19,7 @@ Pet.prototype = {
 
 Pet.prototype.growUp = function() {
     if (!this.isAlive){
-        throw new Error(`Your pet is dead...`);
+        throw new Error(DEAD_MESSAGE);
     }
     this.age += 1;
     this.hunger += 5;
@@ -26,7 +29,7 @@ Pet.prototype.growUp = function() {
 
 Pet.prototype.feed = function() {
     if (!this.isAlive){
-        throw new Error(`Your pet is dead...`);   
+        throw new Error(DEAD_MESSAGE);   
     }
 
     this.hunger -=3;
@@ -38,11 +41,10 @@ Pet.prototype.feed = function() {
 
 Pet.prototype.walk = function(){
     if(!this.isAlive){
-        throw new Error(`Your pet is dead...`);
+        throw new Error(DEAD_MESSAGE);
     }
 
     this.fitness += 4;
-    const MAX_FITNESS = 10;
     if (this.fitness > MAX_FITNESS){
     this.fitness = MAX_FITNESS;
     }
@@ -51,7 +53,7 @@ Pet.prototype.walk = function(){
 
 Pet.prototype.talk = function(){
     if (!this.isAlive){
-        throw new Error(`Your pet is dead...`);
+        throw new Error(DEAD_MESSAGE);
     }
     if(this.hunger >= 5 && this.fitness <= 3){
         return "I am hungry AND I need a walk!";
