@@ -1,1 +1,1 @@
-MCR Codes week 4 Virtual pet project.
+# MCR Codes: Virtual pet project.
